@@ -47,11 +47,11 @@ a {
 }
 
 a:hover {
-	color: #000;
+	color: yellow;
+	transform: scale(1.2);
 }
 
 .container{
-	background-color:red;
 	padding-top:0px;
 }
 
@@ -61,8 +61,6 @@ a:hover {
 	max-width: 70em;
 	margin: 0 auto; /* remove auto to push the h1 text to left*/
 	padding: 0 0.5em 0.5em 0.5em;
-	background-color:yellow;
-	
 }
 
 /* Brand Name Text */
@@ -85,8 +83,12 @@ a:hover {
 
 .container > header nav {
 	float: right;
+	text-align:bottom;
+	padding-top:0.1em;
 }
+
 /* next previous icons*/
+/*
 .container > header nav a {
 	display: block;
 	float: left;
@@ -100,6 +102,7 @@ a:hover {
 	border: 4px solid #47a3da;
 	text-indent: -8000px;
 }
+*/
 
 /* after click next previous icons*/
 .container > header nav a:after {
@@ -118,9 +121,11 @@ a:hover {
 	opacity: 1;
 }
 /* hover next previous icons*/
+/*
 .container > header nav a:hover {
 	background: #47a3da;
 }
+*/
 
 .icon-drop:before, 
 .icon-arrow-left:before {
@@ -150,5 +155,16 @@ a:hover {
 
 .icon-arrow-left:before {
 	content: "\f060";
+}
+
+.fa{
+	color:#999;
+	transition: all .2s ease-in-out;
+}
+
+.fa:hover{
+	color: #47a3da;
+	/*color:rgb(20,220,180); ----- green ----- */
+	transform: scale(1.2);
 }
 

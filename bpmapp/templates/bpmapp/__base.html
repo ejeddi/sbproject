@@ -4,29 +4,43 @@
 	
 	<html lang="en" class="no-js">
 		<head>
-			{% block meta_tags %}{% endblock %}
-			<meta charset="UTF-8"/>
-			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>Google</title>
-			<meta name="description" content="Blueprint: Horizontal Drop-Down Menu" />
-			<meta name="keywords" content="horizontal menu, microsoft menu, drop-down menu, mega menu, javascript, jquery, simple menu" />
-			<meta name="author" content="Codrops" />
-			<link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon.ico"/>
-			<link type="text/javascript" href="{% static 'bpmapp/js/topnavbar.js' %}">
+			{% block meta_tags %}{% endblock meta_tags%}
 
+			<title>
+				{% block title %}BPM App{% endblock title %} 
+			</title>
+			
+			{% block stylesheets %}
+				<link type="text/javascript" href="{% static 'bpmapp/js/topnavbar.js' %}">
+				<link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon.ico"/>
+			{% endblock %}
+			
+			{% block javascript %}
+				<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+				
+				<script>
+					$(function() {
+						cbpHorizontalMenu.init();
+					});
+				</script>
+			{% endblock javascript %}
+			
+			{% block extra_head %}{% endblock %}
 		</head>
 		
 		<body>
-			{% include 'bpmapp/_topnavbar.html' %}
-			{% block content %}
-			{% endblock %}
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-			<script src="static/bpmapp/js/cbpHorizontalMenu.min.js"></script>
-			<script>
-				$(function() {
-					cbpHorizontalMenu.init();
-				});
-			</script>
+			<header class="navbar topnavbar">
+				{% include 'bpmapp/_topnavbar.html' %}
+			</header>
+			
+			<div id="main" role="main">
+				<div class="container">
+					{% block content %}
+					{% endblock content %}
+				</div>
+			</div> {# /#main #}
+			
+			<script type='text/javascript' src="static/bpmapp/js/cbpHorizontalMenu.min.js"></script>
+			
 		</body>
 	</html>

@@ -1,5 +1,4 @@
 
-
 /* menu separator */
 .cbp-hrmenu {
 	width: 100%;
@@ -12,7 +11,6 @@
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	
 }
 
 /* first level ul style (div of tabs)*/
@@ -37,19 +35,20 @@
 	color: #999;
 	display: inline-block;
 	border-radius:0.5em 0.5em 0em 0em;
-		
+	transition: all .2s ease-in-out; 
 }
 /* hover tabs' text */
 .cbp-hrmenu > ul > li > a:hover {
-	color: #47a3da;
-	transition: color 0.2s linear;
-	
+	/*color: #47a3da;
+	transition: color 0.2s linear;*/
+	color:#47a3da;
+	transform: scale(1.2);
 }
 
 /* links inside the drop down menu */
-.cbp-hrmenu > ul > li.cbp-hropen a,
+.cbp-hrmenu > ul > li.cbp-hropen > a,
 .cbp-hrmenu > ul > li.cbp-hropen > a:hover {
-	color: #fff;
+	color: white;
 	background: #47a3da;
 }
 
@@ -85,8 +84,15 @@
 
 .cbp-hrmenu .cbp-hrsub-inner > div a {
 	line-height: 2em;
+	transition: all .2s ease-in-out;
 }
 
+.cbp-hrmenu .cbp-hrsub-inner > div a:hover {
+	font-weight:bold;
+	color:yellow;
+}
+	
+	
 .cbp-hrsub h4 {
 	color: #afdefa;
 	padding: 2em 0 0.6em;
