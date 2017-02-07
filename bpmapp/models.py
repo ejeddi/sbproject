@@ -62,16 +62,29 @@ class ProcessBluePrint(models.Model):
 class ActivityBluePrint(models.Model):
     tag=models.CharField(max_length=10,)
     caption=models.CharField(max_length=50,blank=True)
-    process_BluePrint=models.ForeignKey('ProcessBluePrint')
+    process_blueprint=models.ForeignKey('ProcessBluePrint')
     activity=models.ForeignKey('Activity')
     action=models.ForeignKey('Action')
     actor=models.ForeignKey('auth.User')
 
+    def __str__(self):
+        if self.caption:
+            return self.process_blueprint.name + '_Activity_' + self.tag + ' (' + self.caption + ')'
+        else:
+            return self.process_blueprint.name + '_Activity_' + self.tag
+
+    class Meta:
+        ordering=['tag']
+            
+
 class FlowBluePrint(models.Model):
     caption=models.CharField(max_length=50,blank=True)
-    process_Blueprint=models.ForeignKey('ProcessBluePrint')
+    process_blueprint=models.ForeignKey('ProcessBluePrint')
     origin=models.ForeignKey('ActivityBluePrint',related_name='origin')
     destination=models.ForeignKey('ActivityBluePrint',related_name='destination')
+
+    def __str__(self):
+        return  self.process_blueprint.name + '_Flow_' + self.origin.tag  + 'to' + self.destination.tag
     
 class Process(ProcessBluePrint, models.Model):
     type=models.ForeignKey('ProcessType')

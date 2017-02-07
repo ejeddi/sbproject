@@ -15,6 +15,3 @@ admin.site.register(ProdLine)
 admin.site.register(Business)
 admin.site.register(Comment)
 admin.site.register(Status)
-
-
-
